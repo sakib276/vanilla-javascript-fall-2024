@@ -1,6 +1,12 @@
 const inputNumber= document.getElementById('input-number');
 const generateTable= document.getElementById('generate');
 const tableBody= document.getElementById('table-body');
+const reset=document.getElementById('reset');
+
+reset.addEventListener('click',function()
+{
+    tableBody.innerHTML='';
+})
 
 generateTable.addEventListener('click',function()
 {
