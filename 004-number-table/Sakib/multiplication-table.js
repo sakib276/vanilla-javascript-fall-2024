@@ -33,25 +33,27 @@ function createTable(num)
 
 function getRow(num,mult)
 {
-    const cell1=document.createElement('td');
-    const cell2=document.createElement('td');
-    const cell3=document.createElement('td');
-    const cell4=document.createElement('td');
-    const cell5=document.createElement('td');
+    const cells=[];
+    for(let i=1;i<=5;i++)
+    {
+        const cell=document.createElement('td');
+        cells.push(cell);
+    }
+   
 
-    cell1.innerText=num;
-    cell2.innerText= ' X ';
-    cell3.innerText= mult;
-    cell4.innerText= ' = ';
-    cell5.innerText= num*mult;
+    cells[0].innerText=num;
+    cells[1].innerText= ' X ';
+    cells[2].innerText= mult;
+    cells[3].innerText= ' = ';
+    cells[4].innerText= num*mult;
 
     const tableRow= document.createElement('tr');
+    for(let i=0;i<cells.length;i++)
+    {
+        tableRow.appendChild(cells[i]);
+    }
 
-    tableRow.appendChild(cell1);
-    tableRow.appendChild(cell2);
-    tableRow.appendChild(cell3);
-    tableRow.appendChild(cell4);
-    tableRow.appendChild(cell5);
+   
     
     return tableRow;
 
