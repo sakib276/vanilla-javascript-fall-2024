@@ -3,13 +3,48 @@ const generateTable= document.getElementById('generate');
 const tableBody= document.getElementById('table-body');
 const reset=document.getElementById('reset');
 
+const Error_msg = "border-red-500";
+
+function resetHover() {
+  generateTable.style.backgroundColor = "";
+  reset.style.backgroundColor = "";
+}
+generateTable.addEventListener("mouseover", function () {
+  generateTable.style.backgroundColor = "#4CAF50";
+  generateTable.style.color = "white";
+});
+
+generateTable.addEventListener("mouseout", function () {
+  resetHover();
+});
+
+reset.addEventListener("mouseover", function () {
+  reset.style.backgroundColor ="#FF0000";
+  reset.style.color = "white";
+});
+
+reset.addEventListener("mouseout", function () {
+  resetHover();
+});
+
+function Error_detection() {
+  inputNumber.classList.remove(Error_msg);
+
+  return;
+}
+
+
+
+
 reset.addEventListener('click',function()
 {
     tableBody.innerHTML='';
+    inputNumber.value='';
 })
 
 generateTable.addEventListener('click',function()
 {
+    
     const num= parseInt(inputNumber.value);
     
     cleanTable();
