@@ -3,7 +3,7 @@ const generateTable= document.getElementById('generate');
 const tableBody= document.getElementById('table-body');
 const reset=document.getElementById('reset');
 
-const Error_msg = "border-red-500";
+const Error_msg = "border-red-700";
 
 function resetHover() {
   generateTable.style.backgroundColor = "";
@@ -33,17 +33,30 @@ function Error_detection() {
   return;
 }
 
+function isvalidnumber() {
+  Error_detection();
+  if (!inputNumber.value) {
+    inputNumber.classList.add(Error_msg);
+    alert('Please Enter a Number');
+    return false;
+  }
 
+  return true;
+}
 
 
 reset.addEventListener('click',function()
 {
     tableBody.innerHTML='';
     inputNumber.value='';
+    Error_detection();
 })
 
 generateTable.addEventListener('click',function()
 {
+  if (!isvalidnumber()) {
+    return;
+  }
     
     const num= parseInt(inputNumber.value);
     
@@ -56,6 +69,9 @@ generateTable.addEventListener('click',function()
 function cleanTable()
 {
     tableBody.innerHTML=' ';
+   
+      Error_detection();
+ 
 }
 function createTable(num)
 {
