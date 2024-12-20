@@ -60,6 +60,8 @@ generateTable.addEventListener('click',function()
     
     const num= parseInt(inputNumber.value);
     
+  
+    
     cleanTable();
     createTable(num);
    
